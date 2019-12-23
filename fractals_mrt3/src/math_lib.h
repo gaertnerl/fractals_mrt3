@@ -20,7 +20,7 @@ typedef struct{
 }parameters_t;
 
 typedef struct{
-    float x,y;
+    double x,y;
 } complex_t;
 
 int get_iter(complex_t, complex_t);
