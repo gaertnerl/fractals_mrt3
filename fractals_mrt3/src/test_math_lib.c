@@ -1,9 +1,11 @@
 #include "math_lib.h"
 #include "test_math_lib.h"
+#include <stdio.h>
 
-int *test_get_iter(){
+int * test_get_iter(){
 
     complex_t data[4][2];
+
 
     data[0][0].x = 0;
     data[0][0].y = 0;
@@ -27,13 +29,19 @@ int *test_get_iter(){
 
     int n_tests = sizeof(data)/sizeof(data[0]);
 
-    int iterations[n_tests];
+    int *results_ptr = malloc(n_tests * sizeof(int));
+    int i = 0;
 
-    while(n_tests > 0){
-        n_tests --;
-        int iter = get_iter(data[n_tests][0], data[n_tests][1]);
-        iterations[n_tests] = iter;
+    while(i < n_tests){
+        *results_ptr = get_iter(data[i][0], data[i][1]);
+        i++;
+        results_ptr += sizeof(int);
     };
+    results_ptr -= n_tests * sizeof(int);
 
-    return iterations;
+    return results_ptr;
 };
+
+void run_tests_get_iter(){
+    int *results_ptr = test_get_iter();
+}
