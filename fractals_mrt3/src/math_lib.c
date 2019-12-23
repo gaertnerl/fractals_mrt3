@@ -2,14 +2,14 @@
 #include "math_lib.h"
 
 parameters_t parameters = {
-		.radius = 2,
-		.radius_2 = 4,
+		.radius = 3,
+		.radius_2 = 9,
 		.imax = 75,
 		.fraktal_t = MANDELBROT,
-		.xmin = -2,
-		.xmax = 2,
-		.ymin = -2,
-		.ymax = 2,
+		.xmin = -3,
+		.xmax = 3,
+		.ymin = -3,
+		.ymax = 3,
 		.xpoints = 400,
 		.ypoints = 300
 };
