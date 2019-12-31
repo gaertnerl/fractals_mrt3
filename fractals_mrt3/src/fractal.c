@@ -1,5 +1,5 @@
 #include <math.h>
-#include "fraktal.h"
+#include "fractal.h"
 #include "graphic.h"
 #include <stdio.h>
 
@@ -8,12 +8,12 @@ parameters_t parameters = {
 		.radius_2 = 9,
 		.imax = 75,
 		.fraktal_t = MANDELBROT,
-		.xmin = -3,
-		.xmax = 3,
-		.ymin = -3,
-		.ymax = 3,
-		.xpoints = 300,
-		.ypoints = 400,
+		.xmin = -2,
+		.xmax = 2,
+		.ymin = -2,
+		.ymax = 2,
+		.xpoints = 400,
+		.ypoints = 300,
 };
 
 int get_iter(complex_t c, complex_t z_0) {
@@ -23,6 +23,7 @@ int get_iter(complex_t c, complex_t z_0) {
 
     while(i < 75){
         i ++;
+
         z_1 = next_z(c, z_1);
         if (!in_circle_slow(z_1, parameters.radius_2)) {
            	   break;
@@ -80,12 +81,13 @@ void draw_point(complex_t c, complex_t z){
     int iter = get_iter(c, z);
     color_name_t color = get_color_from_all(iter, parameters.imax);
     grafik_lock_for_painting();
-    grafik_paint_point(z.x, z.y, color);
+    if (parameters.fraktal_t == JULIA) grafik_paint_point(z.x, z.y, color);
+    if (parameters.fraktal_t == MANDELBROT) grafik_paint_point(c.x, c.y, color);
     grafik_unlock_and_show();
 
 }
 
-void draw_all_points(complex_t c){
+void draw_all_points(complex_t constant){
 
     double x[parameters.xpoints];
     double y[parameters.ypoints];
@@ -104,8 +106,10 @@ void draw_all_points(complex_t c){
     // draw each point of point raster
     for( int i=0; i < parameters.xpoints; i++){
         for(int j=0; j < parameters.ypoints; j++){
-            complex_t z = {x[i], y[j]};
-            draw_point(c, z);
+            complex_t changing = {x[i], y[j]};
+            
+            if(parameters.fraktal_t == JULIA) draw_point(constant, changing);
+            if(parameters.fraktal_t == MANDELBROT) draw_point(changing, constant);
         }
     }
 }
