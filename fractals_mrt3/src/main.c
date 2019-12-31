@@ -1,4 +1,4 @@
-#include "fraktal.h"
+#include "fractal.h"
 #include "graphic.h"
 #include <stdio.h>
 
