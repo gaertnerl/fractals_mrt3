@@ -3,7 +3,8 @@
 #include <stdio.h>
 
 int main(){
-    complex_t c = {1, 1};
+    complex_t julia_c = {0.4, 0.4};
+    complex_t mandelbrot_z = {0,0};
 
     printf("start...\n");
     grafik_init_window();
@@ -17,7 +18,8 @@ int main(){
     );
 
     printf("drawing points... \n");
-    draw_all_points(c);
+    if(parameters.fraktal_t == JULIA) draw_all_points(julia_c);
+    if(parameters.fraktal_t == MANDELBROT) draw_all_points(mandelbrot_z);
     printf("finished... \n");
 
     int t;
