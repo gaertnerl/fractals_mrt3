@@ -3,7 +3,7 @@
  Programm-Modul "Parameterdialog"
  */
 
-#include "fraktal.h"
+#include "fractal.h"
 #include "dialog.h"
 #include <stdio.h>
 #include <stdlib.h>
