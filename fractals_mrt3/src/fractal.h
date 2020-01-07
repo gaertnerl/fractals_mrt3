@@ -4,16 +4,18 @@
  *  Created on: 19.12.2019
  *      Author: gaert
  */
+#include "graphic.h"
 
 #ifndef SRC_MATH_LIB_H_
 #define SRC_MATH_LIB_H_
 
+enum fractal_t {MANDELBROT, JULIA};
 
 typedef struct paramaters_t{
-    int radius;
-    int radius_2;
+    double radius;
+    double radius_2;
     int imax;
-    enum {JULIA, MANDELBROT} fraktal_t;
+    enum fractal_t fractal_t;
     double xmin, xmax;
     double ymin, ymax;
     int xpoints;
@@ -24,16 +26,6 @@ typedef struct{
     double x,y; 
 } complex_t;
 
-parameters_t parameters;
-
-int get_iter(complex_t, complex_t);
-
-complex_t next_z(complex_t, complex_t);
-
-int in_circle_slow(complex_t, int);
-
-void draw_point(complex_t c, complex_t z);
-
-void draw_all_points(complex_t c);
+void fractal(parameters_t *p, complex_t constant);
 
 #endif /* SRC_MATH_LIB_H_ */

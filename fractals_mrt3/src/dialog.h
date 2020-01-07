@@ -9,7 +9,17 @@
 /*--- Parameter Dialog Prototyp --------------------------------------------*/
 
 /*--- Funktion zum einlesen des ersten Characters einer getchar() Eingabe --*/
+enum boolean {FALSE, TRUE};
+
 char input_char();
+
+int input_0_to_10(void);
+
+void print_parameters(parameters_t *p);
+
+void edit_parameters(parameters_t *p);
+
+int show_mssg();
 
 #endif /* DIALOG_H */
 

@@ -168,7 +168,7 @@ int grafik_paint_point(double x, double y,
         yp = round(((y - ymin) / deltay) * yres);
         
         if ((colorname < 0) || (colorname >= NUM_COLORS)){
-                printf("color reset");
+                //printf("color reset");
                 colorname = 6;
         }        
 
