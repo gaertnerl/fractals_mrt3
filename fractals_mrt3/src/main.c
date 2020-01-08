@@ -53,35 +53,24 @@ int main(){
                 break;
             case 2: 
                 printf("\nBeginne zeichnen von ");
-
+                grafik_init_window();
+                grafik_create_paint_area(
+                    parameters.xmin,
+                    parameters.xmax,
+                    parameters.ymin,
+                    parameters.ymax,
+                    parameters.xpoints,
+                    parameters.ypoints
+                );
                 if(parameters.fractal_t == JULIA){
                     printf("JUALIAMENGE\n");
-                    grafik_init_window();
-                    grafik_create_paint_area(
-                        parameters.xmin,
-                        parameters.xmax,
-                        parameters.ymin,
-                        parameters.ymax,
-                        parameters.xpoints,
-                        parameters.ypoints
-                    );
                     fractal(&parameters, julia_c);
-                    grafik_close_window();
                 }
                 else{
                     printf("MANDELBROTMENGE\n");
-                    grafik_init_window();
-                    grafik_create_paint_area(
-                        parameters.xmin,
-                        parameters.xmax,
-                        parameters.ymin,
-                        parameters.ymax,
-                        parameters.xpoints,
-                        parameters.ypoints
-                    );
                     fractal(&parameters, mandelbrot_z);
-                    grafik_close_window();
                 } 
+                grafik_close_window();
                 break;
             case 3: 
                 exit = TRUE;

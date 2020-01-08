@@ -10,11 +10,7 @@ complex_t next_z(complex_t c, complex_t z){
     return z_new;
 };
 
-int in_circle_quick(complex_t z, int radius) {
-    return 0;
-};
-
-int in_circle_slow(complex_t z, int radius_2) {
+int in_circle(complex_t z, int radius_2) {
     if ( (z.x*z.x + z.y*z.y) > radius_2) {
         return 0;
     }
@@ -30,7 +26,7 @@ int get_iter(complex_t c, complex_t z, int radius_sqr, int imax) {
         i ++;
 
         z_1 = next_z(c, z_1);
-        if (!in_circle_slow(z_1, radius_sqr)) {
+        if (!in_circle(z_1, radius_sqr)) {
            	   break;
         };
     };

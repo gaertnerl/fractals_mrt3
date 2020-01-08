@@ -53,15 +53,15 @@ void input_int(int *value)
 
 void print_parameters(parameters_t *p){
 
-        printf( "\n1: radius          %f", (int)p->radius);
-        printf( "\n2: max. iteration  %d", (int)p->imax);
+        printf( "\n1: radius          %f", p->radius);
+        printf( "\n2: max. iteration  %d", p->imax);
         printf( "\n3: fraktal typ     ");
         if(p->fractal_t == JULIA) printf("JULIA");
         if(p->fractal_t == MANDELBROT) printf("MANDELBROT");
-        printf( "\n4: x Bildpunkte    %d", (int)p->xpoints);
-        printf( "\n5: y Bildpunkte    %d", (int)p->ypoints);
-        printf( "\n6: x max., x min.  %f, %f", (int)p->xmax, (int)p->xmin);
-        printf( "\n7: y max., y min.  %f, %f\n", (int)p->ymax, (int)p->ymin);
+        printf( "\n4: x Bildpunkte    %d", p->xpoints);
+        printf( "\n5: y Bildpunkte    %d", p->ypoints);
+        printf( "\n6: x max., x min.  %f, %f", p->xmax, p->xmin);
+        printf( "\n7: y max., y min.  %f, %f\n", p->ymax, p->ymin);
 }
 
 void edit_parameters(parameters_t *p){
@@ -93,8 +93,8 @@ void edit_parameters(parameters_t *p){
                         "\n2: MANDELBROT\n"
                         "\nneuer fraktal typ:\n");
                 int fraktal_typ = input_0_to_10();
-                if(fraktal_typ == 1) p->fractal_t == JULIA;
-                if(fraktal_typ == 2) p->fractal_t == MANDELBROT;
+                if(fraktal_typ == 1) p->fractal_t = JULIA;
+                if(fraktal_typ == 2) p->fractal_t = MANDELBROT;
                 else printf("\nfraktaltyp nicht erkannt :(\n");
                 break;
         case 4: 
