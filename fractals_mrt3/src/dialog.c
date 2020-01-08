@@ -127,13 +127,4 @@ void edit_parameters(parameters_t *p){
         printf("\ngehe zurueck zum menu\n");
 }
 
-int show_mssg(char *message){
-
-        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
-                                "User Dialog",
-                                message,
-                                NULL);
-}
-
-
 /* EOF DIALOG_C */

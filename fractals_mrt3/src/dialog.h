@@ -19,8 +19,6 @@ void print_parameters(parameters_t *p);
 
 void edit_parameters(parameters_t *p);
 
-int show_mssg();
-
 #endif /* DIALOG_H */
 
 /* EOF DIALOG_H */
