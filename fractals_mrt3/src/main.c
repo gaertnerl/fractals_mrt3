@@ -43,9 +43,8 @@ int main(){
                     "3 : Programm beenden\n");
 
             printf("\nWas ist zu tun?\n");
-            while(!key_pressed){
-                    key_pressed = input_0_to_10();
-            }
+            
+            key_pressed = input_0_to_10();
             switch (key_pressed)
             {
             case 1: 
