@@ -6,6 +6,7 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
+#include "fractal.h"
 /*--- Parameter Dialog Prototyp --------------------------------------------*/
 
 /*--- Funktion zum einlesen des ersten Characters einer getchar() Eingabe --*/

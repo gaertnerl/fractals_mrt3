@@ -94,7 +94,7 @@ void edit_parameters(parameters_t *p){
                         "\nneuer fraktal typ:\n");
                 int fraktal_typ = input_0_to_10();
                 if(fraktal_typ == 1) p->fractal_t = JULIA;
-                if(fraktal_typ == 2) p->fractal_t = MANDELBROT;
+                else if(fraktal_typ == 2) p->fractal_t = MANDELBROT;
                 else printf("\nfraktaltyp nicht erkannt :(\n");
                 break;
         case 4: 
