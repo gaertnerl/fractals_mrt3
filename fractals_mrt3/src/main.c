@@ -19,8 +19,8 @@ int main(){
             .ypoints = 300,
     };
 
-    complex_t julia_c = {0.4, 0.4};
-    complex_t mandelbrot_z = {0,0};
+    const complex_t julia_c = {0.4, 0.4};
+    const complex_t mandelbrot_z = {0,0};
 
 
     /*-- Benutzerdialog Hauptschleife--*/
@@ -34,7 +34,7 @@ int main(){
 
     enum boolean exit = FALSE;
 
-    while(exit == FALSE){
+    while(!exit){
 
             int key_pressed = 0;
             printf( "\n"
@@ -64,12 +64,17 @@ int main(){
                 if(parameters.fractal_t == JULIA){
                     printf("JUALIAMENGE\n");
                     fractal(&parameters, julia_c);
+
+                    input_0_to_10();
+                    grafik_close_window();
                 }
                 else{
                     printf("MANDELBROTMENGE\n");
                     fractal(&parameters, mandelbrot_z);
+                
+                    input_0_to_10();
+                    grafik_close_window();
                 } 
-                grafik_close_window();
                 break;
             case 3: 
                 exit = TRUE;
