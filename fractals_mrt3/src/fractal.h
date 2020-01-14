@@ -6,12 +6,12 @@
  */
 #include "graphic.h"
 
-#ifndef SRC_MATH_LIB_H_
-#define SRC_MATH_LIB_H_
+#ifndef FRACTAL_H
+#define FRACTAL_H
 
 enum fractal_t {MANDELBROT, JULIA};
 
-typedef struct paramaters_t{
+typedef struct{
     double radius;
     double radius_2;
     int imax;

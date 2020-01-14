@@ -37,7 +37,12 @@ int get_iter(complex_t c, complex_t z, int radius_sqr, int imax) {
 color_name_t get_color_from_all(int iter, int iter_max){
 
     // calculate index, 0 -> black, 32 -> 
-    int color_index = (((float) iter ) / ((float) iter_max)) * 32;
+    
+    //OLD
+    //int color_index = (int) (((float) iter ) / ((float) iter_max)) * 32;
+
+    //NEW
+    int color_index = iter%32;
 
     // cast integer value to enum value
     color_name_t color = (color_name_t) color_index;
@@ -62,14 +67,16 @@ void draw_point(complex_t c, complex_t z, enum fractal_t fractal_t, int radius_2
 
     int iter = get_iter(c, z, radius_2, imax);
     color_name_t color = get_color_from_all(iter, imax);
-    grafik_lock_for_painting();
+    
     if (fractal_t == JULIA) grafik_paint_point(z.x, z.y, color);
     if (fractal_t == MANDELBROT) grafik_paint_point(c.x, c.y, color);
-    grafik_unlock_and_show();
+
 
 }
 
 void fractal(parameters_t *p, complex_t constant){
+
+    grafik_lock_for_painting();
 
     double x[p->xpoints];
     double y[p->ypoints];
@@ -94,6 +101,8 @@ void fractal(parameters_t *p, complex_t constant){
             if(p->fractal_t == MANDELBROT) draw_point(changing, constant, p->fractal_t, (p->radius_2), (p->imax));
         }
     }
+
+    grafik_unlock_and_show();
 }
 
 
